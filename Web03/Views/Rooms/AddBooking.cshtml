@@ -1,0 +1,64 @@
+﻿@model Booking
+@{
+    ViewData["Title"] = "AddBooking";
+}
+
+<h2>AddBooking</h2>
+
+<form asp-action="AddBooking" method="post" asp-controller="Rooms">
+    <div class="form-group">
+        <label>Room:</label>
+        <select name="RoomId" asp-items="@ViewBag.RoomId"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Booking Title:</label>
+        <input type="text" asp-for="Name" />
+        <div>
+            <span asp-validation-for="Name" class="danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Booking By:</label>
+        <input type="text" asp-for="By" />
+        <div>
+            <span asp-validation-for="By" class="danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Attendees:</label>
+        <input type="number" asp-for="Attendees" />
+        <div>
+            <span asp-validation-for="Attendees" class="danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>From Date:</label>
+        <input type="datetime-local" asp-for="From" />
+        <div>
+            <span asp-validation-for="From" class="danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>To Date:</label>
+        <input type="datetime-local" asp-for="To" />
+        <div>
+            <span asp-validation-for="To" class="danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btm btn-primary" type="submit">Submit</button>
+    </div>
+
+</form>
+
+@section scripts {
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+}

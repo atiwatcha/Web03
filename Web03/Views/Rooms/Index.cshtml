@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Room>
+
+
+<h2>Room List</h2>
+
+<!-- table>thead>tr>th*5 -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Seats</th>
+            <th>Bookings</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.Id</td>
+                <td>
+                    <a asp-action="Details"
+                       asp-route-id="@room.Id">
+                        @room.Name
+                    </a>
+                </td>
+                <td>@room.MaxSeat</td>
+                <td>@room.Bookings.Count()</td>
+                <td>
+                    <a asp-action="AddBooking" 
+                       asp-route-id="@room.Id" 
+                       class="btn btn-default btn-sm" >Book</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
