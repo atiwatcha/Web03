@@ -29,11 +29,19 @@
                 <td>@room.MaxSeat</td>
                 <td>@room.Bookings.Count()</td>
                 <td>
-                    <a asp-action="AddBooking" 
-                       asp-route-id="@room.Id" 
-                       class="btn btn-default btn-sm" >Book</a>
+                    <a asp-action="AddBooking"
+                       asp-route-id="@room.Id"
+                       class="btn btn-default btn-sm">Book</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<div>@CmToMeters(170) m.</div>
+
+@functions {
+
+double CmToMeters(double cm) => cm / 100.0;
+
+}

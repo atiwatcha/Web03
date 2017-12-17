@@ -1,6 +1,12 @@
-﻿@{
+﻿@inject RoomDb db
+@{
     ViewData["Title"] = "Contact";
 }
+
+<div class="well well-sm">
+   Rooms count : @db.Rooms.Count()
+</div>
+
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
