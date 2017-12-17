@@ -25,18 +25,20 @@ namespace Web03.Controllers
 
         public IActionResult About()
         {
-            int ms = DateTime.Now.Millisecond;
-            var r = new Room
-            {
-                Id = ms,
-                Name = $"Room {ms}",
-                MaxSeat = 10
-            };
+            //int ms = DateTime.Now.Millisecond;
+            //var r = new Room
+            //{
+            //    Id = ms,
+            //    Name = $"Room {ms}",
+            //    MaxSeat = 10
+            //};
 
-            RoomDb.Rooms.Add(r);
-            RoomDb.SaveChanges();
+            //RoomDb.Rooms.Add(r);
+            //RoomDb.SaveChanges();
 
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+
+            return View();
         }
 
         public IActionResult Contact()
@@ -49,6 +51,11 @@ namespace Web03.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Email()
+        {
+            return View();
         }
     }
 }
