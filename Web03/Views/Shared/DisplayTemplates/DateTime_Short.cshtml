@@ -1,0 +1,14 @@
+﻿@model DateTime?
+
+@if (Model.HasValue)
+{
+    <time datetime="@Model.Value.ToString("s")">
+        @Model.Value.ToString("d MMM")
+    </time>
+}
+else
+{
+    <span>N/A</span>
+}
+
+

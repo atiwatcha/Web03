@@ -25,13 +25,14 @@
     <tbody>
         @foreach (var b in Model.Bookings)
         {
-            <tr>
-                <td>@b.Id</td>
-                <td>@b.Name</td>
-                <td>@Html.DisplayFor(s=>b.From)</td>
-                <td>@b.To</td>
-                <td>@b.Attendees</td>
-            </tr>
+        <tr>
+            <td>@b.Id</td>
+            <td>@b.Name</td>
+            <td>@Html.DisplayFor(s => b.From)</td>
+            <td>@Html.DisplayFor(s => b.To,"DateTime_Short")</td>
+            @*<td>@b.To</td>*@
+            <td>@b.Attendees</td>
+        </tr>
         }
     </tbody>
 </table>
